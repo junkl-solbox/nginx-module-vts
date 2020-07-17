@@ -5,7 +5,7 @@ use Test::Nginx::Socket;
 add_response_body_check(
     sub {
         my ($block, $body, $req_idx, $repeated_req_idx, $dry_run) = @_;
-        system("echo '$body' | python -m json.tool > /dev/null") == 0 or
+        system("echo '$body' | python3.6 -m json.tool > /dev/null") == 0 or
         bail_out "JSON Syntax error($body)";
     }
 );
